@@ -1,8 +1,5 @@
 import React from 'react';
-import Chip from 'material-ui/Chip';
 import Avatar from 'material-ui/Avatar';
-import {grey400, darkBlack, lightBlack} from 'material-ui/styles/colors';
-
 import './emp-list-item.styl';
 
 export const EmpListItem = props => {
