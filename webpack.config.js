@@ -43,7 +43,8 @@ module.exports = {
 
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor'
-    })
+    }),
+
   ],
 
   resolve: {

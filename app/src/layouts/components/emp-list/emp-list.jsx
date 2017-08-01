@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { EmpListItem } from '../list-item/emp-list-item';
 import './emp-list.styl';

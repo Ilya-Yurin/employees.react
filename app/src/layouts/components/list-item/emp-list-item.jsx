@@ -4,9 +4,7 @@ import './emp-list-item.styl';
 
 export const EmpListItem = props => {
 
-  const progressStyle = () => {
-    return {backgroundColor: "#429321", top: "55%"};
-  };
+  const progressStyle = () => ({backgroundColor: "#429321", top: "55%"});
 
   return (
     <div className={props.className ? props.className : 'emp-list-item'}>

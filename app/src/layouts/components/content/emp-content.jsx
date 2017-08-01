@@ -1,9 +1,12 @@
 import React from 'react';
+import { EmpAdd } from '../emp-add/emp-add';
 
 import './emp-content.styl';
 
 export const EmpContent = props => (
   <main className='emp-content'>
-    {props.children}
+    <EmpAdd>
+      {props.children}
+    </EmpAdd>
   </main>
 );

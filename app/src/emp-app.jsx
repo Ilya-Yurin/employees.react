@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import * as Layouts from './layouts/';
+
+injectTapEventPlugin();
 
 class EmpApp extends Component {
   render() {
@@ -15,7 +18,7 @@ class EmpApp extends Component {
             <Layouts.EmpSidebar>
               <div className="emp-app__add">
                 <a href="/#add">
-                  <i className="fa fa-plus-circle grey-fa-font"></i>
+                  <i className="fa fa-plus-circle emp-app__fa-button"/>
                 </a>
               </div>
               <Layouts.EmpList/>
