@@ -19,7 +19,7 @@ export const EmpListItem = props => {
         <div className="emp-list-item__position">
           Front-end developer
         </div>
-        <div className="emp-list-item__skills">
+        <div className="emp-app__user-skills">
           <span className="emp-list-item__skills-tag">html</span>
           <span className="emp-list-item__skills-tag">css</span>
           <span className="emp-list-item__skills-tag">webpack</span>
