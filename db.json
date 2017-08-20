@@ -1,0 +1,185 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "photo": "http://www.youloveit.ru/uploads/posts/2016-03/1457531974_youloveit_ru_zveropolis_avatarki05.jpg",
+      "first_name": "User",
+      "last_name": "Lastmame",
+      "gender": 1,
+      "birthday": "15 Sep 1986",
+      "position": "frontend",
+      "skill": [
+        "nodeJs",
+        "AngularJs",
+        "php",
+        "Bootstrap",
+        "Java",
+        "Ubuntu",
+        "ReactJs"
+      ],
+      "characteristic": "Easily trained worker"
+    },
+    {
+      "id": 2,
+      "photo": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR52kphREmh2d2cwsiVvPbkUcyhgQVCBjD7p-jCSeQveYd_L_7_",
+      "first_name": "Paul",
+      "last_name": "Admin",
+      "gender": 1,
+      "position": "Admin",
+      "skill": [
+        "Ubuntu",
+        "Java",
+        "Windows"
+      ],
+      "description": "",
+      "characteristic": "Excellent worker",
+      "birthday": "1989-07-05T23:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "photo": null,
+      "first_name": "UI",
+      "last_name": "Support",
+      "gender": "",
+      "position": "tester",
+      "skill": [
+        "Ubuntu",
+        "Windows",
+        "Selenium"
+      ],
+      "description": "",
+      "characteristic": "Ui good tester",
+      "birthday": "1993-02-09T21:00:00.000Z"
+    },
+    {
+      "skill": [],
+      "first_name": "Server",
+      "last_name": "Account",
+      "position": "",
+      "gender": 1,
+      "id": 4
+    },
+    {
+      "id": 6,
+      "photo": null,
+      "first_name": "asd",
+      "last_name": "asd",
+      "gender": "",
+      "position": "asd",
+      "skill": [],
+      "description": "",
+      "characteristic": "asdasd asdasd",
+      "birthday": null
+    },
+    {
+      "id": 7,
+      "photo": null,
+      "first_name": "asdawd",
+      "last_name": "asd",
+      "gender": "",
+      "position": "asd",
+      "skill": [],
+      "description": "",
+      "characteristic": "asdasd asdasd",
+      "birthday": null
+    },
+    {
+      "id": 8,
+      "photo": null,
+      "first_name": "asdawdaw",
+      "last_name": "asd",
+      "gender": "",
+      "position": "asd",
+      "skill": [],
+      "description": "",
+      "characteristic": "asdasd asdasd",
+      "birthday": null
+    },
+    {
+      "id": 9,
+      "photo": null,
+      "first_name": "asdawdaw",
+      "last_name": "asawd",
+      "gender": "",
+      "position": "asd",
+      "skill": [],
+      "description": "",
+      "characteristic": "asdasd asdasd",
+      "birthday": null
+    },
+    {
+      "id": 10,
+      "photo": null,
+      "first_name": "awwedsdawdaw",
+      "last_name": "asawawd",
+      "gender": "",
+      "position": "asd",
+      "skill": [],
+      "description": "",
+      "characteristic": "asdasd asdasd",
+      "birthday": null
+    },
+    {
+      "id": 11,
+      "photo": null,
+      "first_name": "edc",
+      "last_name": "edc",
+      "gender": "",
+      "position": "edc",
+      "skill": [],
+      "description": "",
+      "characteristic": "edc edc edc ",
+      "birthday": null
+    }
+  ],
+  "tag": [
+    {
+      "id": 1,
+      "name": "AngularJs"
+    },
+    {
+      "id": 2,
+      "name": "Bootstrap"
+    },
+    {
+      "id": 3,
+      "name": "Ubuntu"
+    },
+    {
+      "name": "php",
+      "id": 4
+    },
+    {
+      "name": "Java",
+      "id": 5
+    },
+    {
+      "name": "nodeJs",
+      "id": 6
+    },
+    {
+      "name": "ReactJs",
+      "id": 7
+    },
+    {
+      "name": "css",
+      "id": 8
+    },
+    {
+      "name": "Windows",
+      "id": 9
+    },
+    {
+      "name": "Selenium",
+      "id": 10
+    },
+    {
+      "name": "Mac OS",
+      "id": 11
+    },
+    {
+      "name": "Scala",
+      "id": 12
+    }
+  ]
+}

@@ -24,7 +24,7 @@ export const EmpDatePicker = props => {
       top: '18px'
     }
   };
-
+  const handleChange = (event, date) => props.onChangeDate(date);
 
   return (
     <div className="emp-date-picker">
@@ -33,7 +33,9 @@ export const EmpDatePicker = props => {
                   textFieldStyle={styles.textFieldStyle}
                   underlineShow={false}
                   hintStyle={styles.hintStyle}
-                  style={styles.rootStyle}/>
+                  style={styles.rootStyle}
+                  onChange={handleChange}
+                  value={props.value ? new Date(props.value) : null}/>
     </div>
   );
 };

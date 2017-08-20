@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
@@ -8,6 +8,11 @@ import * as Layouts from './layouts/';
 injectTapEventPlugin();
 
 class EmpApp extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <MuiThemeProvider>
@@ -17,15 +22,13 @@ class EmpApp extends Component {
           <div className='emp-app__content'>
             <Layouts.EmpSidebar>
               <div className="emp-app__add">
-                <a href="/#add">
+                <Link to={'/employee/add'}>
                   <i className="fa fa-plus-circle emp-app__fa-button"/>
-                </a>
+                </Link>
               </div>
-              <Layouts.EmpList/>
+              <Layouts.EmpList {...this.props}/>
             </Layouts.EmpSidebar>
-            <Layouts.EmpContent>
-              Content text
-            </Layouts.EmpContent>
+            <Layouts.EmpContent {...this.props}/>
           </div>
         </div>
       </MuiThemeProvider>
@@ -33,4 +36,10 @@ class EmpApp extends Component {
   }
 }
 
-ReactDOM.render(<EmpApp />, document.getElementById('emp-app'));
+export default (props) => {
+  return (
+    <BrowserRouter>
+      <Route path='/' render={(routeProps) => <EmpApp {...props} {...routeProps}/>}/>
+    </BrowserRouter>
+  );
+}

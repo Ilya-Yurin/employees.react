@@ -2,9 +2,9 @@ import React from 'react';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import './emp-select.styl';
+import _ from 'lodash';
 
 export const EmpSelect = props => {
-
   const styles = {
     selectStyle: {
       fontSize: '20px',
@@ -31,6 +31,7 @@ export const EmpSelect = props => {
       top: '18px'
     },
     rootStyle: {
+      color: '#fff',
       borderRadius: '5px',
       backgroundColor: 'black',
       width: '220px',
@@ -47,20 +48,30 @@ export const EmpSelect = props => {
     }
   };
 
+  const handleChange = (event, index, value) => props.onSelectGender(value);
 
   return (
     <div className="emp-select">
-      <SelectField selectedMenuItemStyle={{ backgroundColor: "#333" }}
+      <SelectField selectedMenuItemStyle={{ backgroundColor: "#333", color: '#fff' }}
                    menuItemStyle={styles.menuItemStyle}
                    underlineShow={false}
                    hintText="Select Gender"
                    floatingLabelStyle={styles.selectStyle}
                    listStyle={styles.selectListStyle}
+                   menuStyle={{color: 'fff'}}
+                   labelStyle={{color: 'fff', padding: '0 24px', margin: 'auto', top: '0'}}
                    hintStyle={styles.hintStyle}
-                   style={styles.rootStyle}>
-        <MenuItem className="emp-select__item" style={styles.selectItemFirstStyle} value={null} primaryText="Select Gender"/>
-        <MenuItem className="emp-select__item" value={0} primaryText="Male"/>
-        <MenuItem className="emp-select__item" style={styles.selectItemLastStyle} value={1} primaryText="Female"/>
+                   style={styles.rootStyle}
+                   value={props.value ? _.parseInt(props.value) : null}
+                   onChange={handleChange}>
+        <MenuItem className="emp-select__item"
+                  style={styles.selectItemFirstStyle}
+                  value={1}
+                  primaryText="Male"/>
+        <MenuItem className="emp-select__item"
+                  style={styles.selectItemLastStyle}
+                  value={2}
+                  primaryText="Female"/>
       </SelectField>
     </div>
   );

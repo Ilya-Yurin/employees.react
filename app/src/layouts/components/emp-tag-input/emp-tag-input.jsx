@@ -1,65 +1,67 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Chip from 'material-ui/Chip';
 import AutoComplete from 'material-ui/AutoComplete';
-
 import './emp-tag-input.styl';
+import _ from 'lodash';
 
-export const EmpTagInput = props => {
+const MAX_TAG_COUNT = 8;
 
-  const state = {
-    searchText: '',
-  };
+export class EmpTagInput extends Component {
 
-  const styles = {
-    skillStyle: {fontSize: '16px', color: '#fff'}
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchText: ''
+    };
+  }
 
-  const skills = [ "AngualrJS", "React", "HTML", "CSS", "JSON", "nodeJs" ];
+  render() {
+    const addTag = newTag => {
+      this.setState({searchText: ''});
+      if(!_.find(_.get(this.props, 'tags.list', []), ['name', newTag])) {
+        this.props.onCreateTag({name: newTag});
+      }
+      this.props.onAddSkill(newTag);
+    };
+    const deleteTag = index => {
+      this.props.onDeleteSkill(index);
+    };
+    const updateInput = searchText => this.setState({searchText: searchText});
+    const employeeTags = _.get(this.props, 'skills', []);
+    const availableTags = _.reduce(_.get(this.props, 'tags.list', []), (availableTags, tag) => {
+      if(!_.includes(employeeTags, tag.name)) {
+        availableTags.push(tag.name);
+      }
+      return availableTags;
+    }, []);
 
-  const addSkill = (string, index) => {
-    console.log('add skill: ', string);
-  };
+    const tagsList = _.map(employeeTags, (tag, key) => {
+      return (
+        <Chip
+          className="emp-tag-input__skill"
+          onRequestDelete={() => deleteTag(key)}
+          key={key}
+          labelStyle={{fontSize: '16px', color: '#fff'}}>
+          {tag}
+        </Chip>
+      );
+    });
 
-  const updateInput = (searchText) => {
-    console.log('update input: ', searchText);
-  };
-
-  const deleteSkill = (skill) => {
-    console.log('remove skill: ', skill);
-  };
-
-  return (
-    <div className="emp-tag-input">
-      <Chip
-        className="emp-tag-input__skill"
-        onRequestDelete={() => deleteSkill(1)}
-        key="1"
-        labelStyle={styles.skillStyle}>
-        AngularJs
-      </Chip>
-      <Chip
-        className="emp-tag-input__skill"
-        onRequestDelete={() => deleteSkill(2)}
-        key="2"
-        labelStyle={styles.skillStyle}>
-        React
-      </Chip>
-      <Chip
-        className="emp-tag-input__skill"
-        onRequestDelete={() => deleteSkill(3)}
-        key="3"
-        labelStyle={styles.skillStyle}>
-        HTML
-      </Chip>
-      <AutoComplete
-        className="emp-tag-input__auto-complete"
-        openOnFocus={true}
-        underlineShow={false}
-        hintText="typing..."
-        dataSource={skills}
-        onNewRequest={addSkill}
-        onUpdateInput={updateInput}
-        searchText={state.searchText}/>
-    </div>
-  )
-};
+    return (
+      <div className="emp-tag-input">
+        {tagsList}
+        <AutoComplete
+          className="emp-tag-input__auto-complete"
+          style={_.size(tagsList) >= MAX_TAG_COUNT ? {display: 'none'} : {}}
+          filter={AutoComplete.caseInsensitiveFilter}
+          underlineShow={false}
+          hintText="typing..."
+          dataSource={availableTags}
+          onNewRequest={addTag}
+          onUpdateInput={updateInput}
+          searchText={this.state.searchText}/>
+      </div>
+    );
+  }
+}
+;

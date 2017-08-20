@@ -5,7 +5,7 @@ const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: path.resolve(__dirname, 'app/src/emp-app.jsx'),
+    main: path.resolve(__dirname, 'app/src/emp-root.js'),
     vendor: path.resolve(__dirname, 'assets/vendor.js')
   },
   output: {
@@ -53,7 +53,7 @@ module.exports = {
 
   devServer: {
     host: '0.0.0.0',
-    port: 3000
+    port: 8090
   },
 
   devtool: 'eval-source-map'
