@@ -14,6 +14,10 @@ class EmpApp extends Component {
   }
 
   render() {
+    const openAddEmployee = () => {
+      this.props.onCloseEmployee();
+      this.props.history.push('/employee/add');
+    };
     return (
       <MuiThemeProvider>
         <div className='emp-app__wrapper'>
@@ -22,9 +26,7 @@ class EmpApp extends Component {
           <div className='emp-app__content'>
             <Layouts.EmpSidebar>
               <div className="emp-app__add">
-                <Link to={'/employee/add'}>
-                  <i className="fa fa-plus-circle emp-app__fa-button"/>
-                </Link>
+                <i className="fa fa-plus-circle emp-app__fa-button" onClick={openAddEmployee}/>
               </div>
               <Layouts.EmpList {...this.props}/>
             </Layouts.EmpSidebar>

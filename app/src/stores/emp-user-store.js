@@ -19,33 +19,12 @@ class EmpUserStore extends ReduceStore {
   reduce(state, action) {
     switch (action.type) {
 
-      case EmpConstants.FETCH_EMPLOYEE_LIST: {
-        let employee_list = _.map(_.get(action, 'items.data', []), employee => new Employee(employee));
-        return state.set('list', Immutable.fromJS(employee_list).toOrderedMap());
-      }
-
       case EmpConstants.ADD_EMPLOYEE: {
-        const employee = new Employee(_.get(action, 'employee.data', null));
-
-        return state.update('list', list => {
-          return list.toList().concat(Immutable.fromJS([employee]).toMap()).toOrderedMap();
-        });
+        return Immutable.fromJS({employee: new Employee(_.get(action, 'employee.data', null))}).toMap();
       }
 
-      case EmpConstants.EDIT_EMPLOYEE: {
-        const employee = new Employee(_.get(action, 'employee.data', null));
-
-        return state.update('list', list => {
-          return Immutable.fromJS(_.map(list.toList().toJS(), e => e.id == employee.id ? employee : e)).toOrderedMap();
-        });
-      }
-
-      case EmpConstants.DELETE_EMPLOYEE: {
-        const id = _.parseInt(_.get(action, 'id'));
-
-        return state.update('list', list => {
-          return Immutable.fromJS(_.filter(list.toList().toJS(), e => e.id !== id)).toOrderedMap();
-        });
+      case EmpConstants.CLOSE_EMPLOYEE: {
+        return Immutable.fromJS({}).toMap();
       }
 
       case EmpConstants.FAIL: {

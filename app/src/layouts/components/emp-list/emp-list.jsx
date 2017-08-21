@@ -8,11 +8,20 @@ export class EmpList extends Component {
 
   constructor(props) {
     super(props);
+    this.onWhell = this.onWhell.bind(this)
   }
 
   componentWillMount() {
     this.props.onGetEmployeeList();
     this.props.onGetTagList();
+  }
+
+  onWhell(event) {
+    if (event.deltaY > 0){
+      this.refs.items.scrollTop += 50;
+    } else {
+      this.refs.items.scrollTop -= 50;
+    }
   }
 
   render() {
@@ -22,7 +31,7 @@ export class EmpList extends Component {
 
     return (
       <MuiThemeProvider>
-        <div className='emp-list'>
+        <div ref="items" onWheel={this.onWhell} className='emp-list'>
           {empItems}
         </div>
       </MuiThemeProvider>

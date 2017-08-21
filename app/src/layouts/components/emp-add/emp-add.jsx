@@ -15,9 +15,8 @@ export class EmpAdd extends Component {
     super(props);
     let id = _.get(props, 'match.params.id', null);
     this.state = {
-      employee: id
-        ? _.extend(new Employee({}), _.find(_.get(props, 'employee_list.list', []), ['id', _.parseInt(id)]))
-        : new Employee({})
+      employee: _.get(props, 'employee', new Employee({})),
+      isSaving: false
     };
 
     this.onSelectGender = this.onSelectGender.bind(this);
@@ -29,6 +28,16 @@ export class EmpAdd extends Component {
     this.onPositionChange = this.onPositionChange.bind(this);
     this.onCharacteristicChange = this.onCharacteristicChange.bind(this);
     this.onSave = this.onSave.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(_.get(nextProps, 'new_employee.employee.id') && !_.get(nextProps, 'match.params.id')) {
+      nextProps.history.push('/employee/' + _.get(nextProps, 'new_employee.employee.id', {}));
+    }
+  }
+
+  componentWillUnmount() {
+    this.props.onCloseEmployee();
   }
 
   onAddSkill(value) {
@@ -80,6 +89,7 @@ export class EmpAdd extends Component {
   }
 
   onSave() {
+    this.setState({isSaving: true});
     _.get(this.state, 'employee.id')
       ? this.props.onEmployeeEdit(this.state.employee)
       : this.props.onEmployeeAdd(this.state.employee);
@@ -156,12 +166,12 @@ export class EmpAdd extends Component {
                             labelStyle={styles.labelStyle}
                             buttonStyle={styles.buttonStyle}
                             overlayStyle={styles.overlayStyle}
-                            onTouchTap={this.onSave}/>
+                            onTouchTap={this.onSave}
+                            disabled={this.state.isSaving}/>
             </div>
           </div>
         </div>
       </div>
     )
   };
-
 }

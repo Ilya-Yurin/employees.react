@@ -4,10 +4,9 @@
       "id": 1,
       "photo": "http://www.youloveit.ru/uploads/posts/2016-03/1457531974_youloveit_ru_zveropolis_avatarki05.jpg",
       "first_name": "User",
-      "last_name": "Lastmame",
+      "last_name": "Strong",
       "gender": 1,
-      "birthday": "15 Sep 1986",
-      "position": "frontend",
+      "position": "frontend master",
       "skill": [
         "nodeJs",
         "AngularJs",
@@ -17,12 +16,14 @@
         "Ubuntu",
         "ReactJs"
       ],
-      "characteristic": "Easily trained worker"
+      "description": "",
+      "characteristic": "Easily trained worker",
+      "birthday": "15 Sep 1986"
     },
     {
       "id": 2,
       "photo": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR52kphREmh2d2cwsiVvPbkUcyhgQVCBjD7p-jCSeQveYd_L_7_",
-      "first_name": "Paul",
+      "first_name": "Nick",
       "last_name": "Admin",
       "gender": 1,
       "position": "Admin",
@@ -38,10 +39,10 @@
     {
       "id": 3,
       "photo": null,
-      "first_name": "UI",
+      "first_name": "Alex",
       "last_name": "Support",
       "gender": "",
-      "position": "tester",
+      "position": "support account",
       "skill": [
         "Ubuntu",
         "Windows",
@@ -52,83 +53,29 @@
       "birthday": "1993-02-09T21:00:00.000Z"
     },
     {
-      "skill": [],
-      "first_name": "Server",
-      "last_name": "Account",
-      "position": "",
+      "id": 4,
+      "photo": null,
+      "first_name": "Maxim",
+      "last_name": "Smith",
       "gender": 1,
-      "id": 4
+      "position": "Web developer",
+      "skill": [
+        "ReactJs"
+      ],
+      "description": "",
+      "characteristic": "Nub...",
+      "birthday": "1989-08-09T20:00:00.000Z"
     },
     {
-      "id": 6,
+      "id": 5,
       "photo": null,
-      "first_name": "asd",
-      "last_name": "asd",
-      "gender": "",
-      "position": "asd",
+      "first_name": "Test",
+      "last_name": "Account",
+      "gender": 1,
+      "position": "Tester",
       "skill": [],
       "description": "",
-      "characteristic": "asdasd asdasd",
-      "birthday": null
-    },
-    {
-      "id": 7,
-      "photo": null,
-      "first_name": "asdawd",
-      "last_name": "asd",
-      "gender": "",
-      "position": "asd",
-      "skill": [],
-      "description": "",
-      "characteristic": "asdasd asdasd",
-      "birthday": null
-    },
-    {
-      "id": 8,
-      "photo": null,
-      "first_name": "asdawdaw",
-      "last_name": "asd",
-      "gender": "",
-      "position": "asd",
-      "skill": [],
-      "description": "",
-      "characteristic": "asdasd asdasd",
-      "birthday": null
-    },
-    {
-      "id": 9,
-      "photo": null,
-      "first_name": "asdawdaw",
-      "last_name": "asawd",
-      "gender": "",
-      "position": "asd",
-      "skill": [],
-      "description": "",
-      "characteristic": "asdasd asdasd",
-      "birthday": null
-    },
-    {
-      "id": 10,
-      "photo": null,
-      "first_name": "awwedsdawdaw",
-      "last_name": "asawawd",
-      "gender": "",
-      "position": "asd",
-      "skill": [],
-      "description": "",
-      "characteristic": "asdasd asdasd",
-      "birthday": null
-    },
-    {
-      "id": 11,
-      "photo": null,
-      "first_name": "edc",
-      "last_name": "edc",
-      "gender": "",
-      "position": "edc",
-      "skill": [],
-      "description": "",
-      "characteristic": "edc edc edc ",
+      "characteristic": "Test workflow",
       "birthday": null
     }
   ],

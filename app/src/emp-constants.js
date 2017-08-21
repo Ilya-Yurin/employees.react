@@ -7,5 +7,7 @@ export default keyMirror({
   ADD_TAG: null,
   ADD_EMPLOYEE: null,
   EDIT_EMPLOYEE: null,
+  CLOSE_EMPLOYEE: null,
+  OPEN_EMPLOYEE: null,
   FAIL: null
 });

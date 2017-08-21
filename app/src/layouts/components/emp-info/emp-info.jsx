@@ -12,16 +12,14 @@ export class EmpInfo extends Component {
     super(props);
 
     this.state = {
-      id: _.get(props, 'match.params.id', null),
-      employee: _.find(_.get(props, 'employee_list.list', []), ['id', _.parseInt(_.get(props, 'match.params.id'))]),
+      employee: _.get(this.props, 'employee'),
       isDeleteDialogOpen: false
     };
-    this.onDeleteEmployee = this.onDeleteEmployee.bind(this);
   }
 
-  onDeleteEmployee() {
-    this.props.onEmployeeDelete(this.state.id);
-    this.props.history.push('/');
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({employee: _.get(nextProps, 'employee')});
   }
 
   render() {
@@ -34,7 +32,7 @@ export class EmpInfo extends Component {
     };
 
     const toEditEmployee = () => {
-      !_.isEmpty(this.state.id) ? this.props.history.push('/employee/' + this.state.id + '/edit') : this.props.history.push('/add');
+      this.props.history.push('/employee/' + this.state.employee.id + '/edit');
     };
 
     const skills = _.map(_.get(this.state.employee, 'skill', []), (skill, key) => {
@@ -49,6 +47,17 @@ export class EmpInfo extends Component {
       this.setState({isDeleteDialogOpen: false});
     };
 
+    const onDeleteEmployee = () => {
+      this.props.onEmployeeDelete(this.state.employee.id);
+      this.props.onCloseEmployee();
+      this.props.history.push('/');
+    };
+
+    const closeEmployee = () => {
+      this.props.onCloseEmployee();
+      this.props.history.push('/');
+    };
+
     const actions = [
       <FlatButton
         label="Cancel"
@@ -58,16 +67,14 @@ export class EmpInfo extends Component {
       <FlatButton
         label="Yes"
         primary={true}
-        onClick={this.onDeleteEmployee}
+        onClick={onDeleteEmployee}
       />,
     ];
 
     return (
       <div className="emp-info">
         <div className="emp-info__close-button">
-          <Link to={'/'}>
-            <i className="fa fa-times-circle-o emp-app__fa-button"/>
-          </Link>
+          <i className="fa fa-times-circle-o emp-app__fa-button" onClick={closeEmployee}/>
         </div>
         <div className="emp-info__container">
           <div className="emp-info__container-left">
@@ -107,7 +114,7 @@ export class EmpInfo extends Component {
                             labelStyle={styles.label}
                             buttonStyle={styles.buttonDel}
                             overlayStyle={styles.overlay}
-                            onClick={handleOpenDialog}/>
+                            onTouchTap={handleOpenDialog}/>
               <Dialog
                 title="Warning"
                 actions={actions}

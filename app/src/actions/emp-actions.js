@@ -99,6 +99,14 @@ const EmpActions = {
           error: err
         });
       });
+  },
+
+  closeEmployee() {
+    setTimeout(() => {
+      EmpDispatcher.dispatch({
+        type: EmpConstants.CLOSE_EMPLOYEE
+      });
+    }, 0);
   }
 };
 
