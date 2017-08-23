@@ -1,13 +1,14 @@
 import React from 'react';
 import Avatar from 'material-ui/Avatar';
+import Employee from '../../../models/employee';
 import './emp-list-item.styl';
 import _ from 'lodash';
 
 export const EmpListItem = props => {
-  const employee = _.get(props, 'employee', {});
-  const progressStyle = () => ({backgroundColor: "#429321", top: "55%"});
+  const employee = _.get(props, 'employee', new Employee({}));
+  const progressStyle = () => ({backgroundColor: employee.getProfileFillingColor(), top: employee.getTopProfileFilling() + "%"});
   const openEmployee = () => {
-    _.isNumber(employee.id) ? props.history.push('/employee/' + employee.id) : props.history.push('/');
+    props.history.push('/employee/' + employee.id);
   };
   const skills = _.map( _.get(employee, 'skill', []), (skill, key) => {
     return <span className="emp-list-item__skills-tag" key={key}>{skill}</span>;

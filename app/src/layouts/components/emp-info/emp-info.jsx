@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import {Link} from 'react-router-dom';
+import Employee from '../../../models/employee';
 import './emp-info.styl';
 import _ from 'lodash';
 
@@ -10,16 +10,20 @@ export class EmpInfo extends Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
-      employee: _.get(this.props, 'employee'),
+      employee: _.get(this.props, 'employee', new Employee({})),
       isDeleteDialogOpen: false
     };
   }
 
+  componentWillMount() {
+    if(!_.get(this.props, 'employee')) {
+      this.props.history.push('/employee/not-found');
+    }
+  }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({employee: _.get(nextProps, 'employee')});
+    this.setState({employee: _.get(nextProps, 'employee', new Employee({}))});
   }
 
   render() {

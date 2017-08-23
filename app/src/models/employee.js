@@ -70,4 +70,19 @@ export default class Employee {
 
     return progress > 100 ? 100 : progress;
   }
+
+  getTopProfileFilling() {
+    return 100 - this.calcProgress();
+  }
+
+  getProfileFillingColor() {
+    let progress = this.calcProgress();
+    if(progress>=75) {
+      return '#429321';
+    } else if(progress>=50 && progress<75) {
+      return '#f2af54';
+    } else {
+      return '#c63918';
+    }
+  }
 };
