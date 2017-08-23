@@ -28,7 +28,7 @@ export class EmpInfo extends Component {
 
   render() {
     const styles = {
-      buttonRoot: {margin: 12, borderRadius: '5px'},
+      buttonRoot: {margin: '12px', borderRadius: '5px'},
       label: {textTransform: 'none', fontSize: '18px'},
       buttonSave: {backgroundColor: '#f2ac48', borderRadius: '5px', height: '56px', width: "220px", lineHeight: '56px'},
       buttonDel: {backgroundColor: '#D95464', borderRadius: '5px', height: '56px', width: "220px", lineHeight: '56px'},

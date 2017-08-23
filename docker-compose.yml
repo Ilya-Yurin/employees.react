@@ -3,6 +3,15 @@ services:
   app:
     build: ./
     ports:
+      - "8090:8090"
+    volumes:
+      - /usr/src/app/node_modules
+      - ./:/usr/src/app
+
+  jsonserver:
+    build: ./
+    command: "npm run db"
+    ports:
       - "3000:3000"
     volumes:
       - /usr/src/app/node_modules

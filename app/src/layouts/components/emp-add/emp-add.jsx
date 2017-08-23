@@ -121,11 +121,9 @@ export class EmpAdd extends Component {
         <div className="emp-add__container">
           <div className="emp-add__container-left">
             <div className="emp-add__container-avatar">
-              <a href="#">
-                <img className="emp-add__avatar"
-                     width="150"
-                     src={this.state.employee.getPhoto()}/>
-              </a>
+              <img className="emp-add__avatar"
+                   width="150"
+                   src={this.state.employee.getPhoto()}/>
             </div>
             <div className="emp-add__profile-progress">
               Filled profile: {this.state.employee.calcProgress()}%
